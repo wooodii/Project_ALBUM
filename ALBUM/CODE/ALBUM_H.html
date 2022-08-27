@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALBUM PICK</title>
+    <link rel="stylesheet" href="/CODE/ALBUM_C.css">
+    <!-- 스와이프 기능 api를 cdn 코드로 복사-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+    <div class = "wrap">
+        <h1> ALBUM LIST</h1>
+        <!-- 재생멈춤아이콘 -->
+        <ul class="auto">
+            <li class="btnstart">
+                <i class ="fas fa-pause"></i>
+            </li>
+            <li class ="btnstop">
+                <i class = "fas fa-play"></i>
+            </li>
+        </ul>
+
+        <!-- 스와이퍼 요소 5개 -->
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="inner">
+                    <div class="con">
+                        <img src="/ALBUM.IMG/newjeansimgg.jpg" alt="">
+                        <h2>NewJeans</h2>
+                        <h3>[NewJeans 1st EP 'New Jeans' Album]</h3>
+                        <p>POP에 기반을 두고 있지만 특정 스타일만을 고수하지 않았다. 
+                            편하게 들을 수 있는 세련된 이지리스닝 팝을 추구하는 동시에 과장 없는 자연스러운 사운드 엔지니어링으로 
+                            NewJeans 멤버들 본연의 목소리를 살리는 프로듀싱을 진행했다.
+                            앨범에 수록된 네 곡은 전원 10대로 구성된 NewJeans 멤버들의 
+                            순수하고 자연스러운 매력과 10대 고유의 에너지를 오롯이 담아내고 있다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="inner">
+                    <div class ="con">
+                        <img src="/ALBUM.IMG/exoimg.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="inner">
+                    <div class ="con">
+                        <img src="/ALBUM.IMG/fximg.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="inner">
+                    <div class ="con">
+                        <img src="/ALBUM.IMG/shineeimg.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="inner">
+                    <div class ="con">
+                        <img src="/ALBUM.IMG/redvelvetimg.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- ui 호출값 -->
+    <script>
+        var swiper = new Swiper(".wrap", {
+          pagination: {
+            el: ".swiper-pagination",
+            type: "fraction",
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        //  현재 화면에 슬라이드가 몇개 표시되도록
+        slidesPerView:"auto",
+        spaceBetween:50,
+        // 마지막 슬라이드에서도 처음 슬라이드로 회전이 되도록
+        loop:true,
+        centeredSlides:true,
+        //슬라이드 속도값 제어 1s
+        speed:1000,
+        direction : "horizontal",
+        // ** 가로 3d 적용 
+        effect:"coverflow",
+        coverflowEffect:{
+            rotate:50,
+            // +면 당겨지는 것
+            stretch:-100,
+            // 원근감
+            depth: 400,
+            // 현재 적용되는 효과 배수개념
+            modifider: 1,
+            // 그림자
+            slideShadows : false
+        }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+@charset "utf-8";
+@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+.nanummyeongjo * {
+font-family: 'Nanum Myeongjo', serif;
+}
+
+/* 화면 초기화 값 0으로 설정*/
+* {
+    margin :0px;
+    padding:0px;
+}
+
+ul,li,ol{
+    list-style:none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.wrap {
+    width:100%;
+    height:100vh;
+    text-align:center;
+    overflow:hidden;
+    box-sizing:border-box;
+    background:linear-gradient(45deg, #ac8bef, #2ddbdc);
+}
+
+.wrap h1{
+    font-weight:bold;
+    font-size: 30px;
+    font-family: "Nanum Myeongjo";
+    text-align:center;
+    position :absolute;
+    color:#fff;
+    left:50px;
+    top:55px;
+}
+
+.wrap .auto {
+    position :absolute;
+    bottom:60px;
+    left:60px;
+}
+
+.wrap .auto li {
+    float:left;
+    margin-right:20px;
+    /* 버튼이 아니니 마우스 올렸을 때 버튼 느낌이 나도록 */
+    cursor: pointer;
+    color: #fff;
+    font-size :20px;
+    opacity:0.8;
+    transition: all 0.5s;
+}
+
+/* 재생 아이콘 호버되었을 때 모션 */
+.wrap .auto li:hover {
+    opacity:1;
+    transform:scale(1.4);
+}
+
+/* ui모양의 플러그인 기능만 연결, 이후 호출값 연결 */
+.swiper-wrapper {
+    width:100%;
+    height:100%;
+}
+
+.swiper-wrapper .swiper-slide {
+    width:500px;
+    height:500px;
+    position:relative;
+    top:50%;
+    margin-top:-230px;
+}
+
+.swiper-wrapper .swiper-slide .inner {
+    width:100%; 
+    height :100%;
+    background:#fff;
+    padding:30px;
+    box-sizing:border-box;
+    opacity:0.4;
+    transition:1s;
+}
+
+.swiper-wrapper .swiper-slide .inner .con{
+    position: relative;
+    z-index :10;
+}
+.swiper-wrapper .swiper-slide .inner .con img{
+    width:100%;
+}
+.swiper-wrapper .swiper-slide .inner .con h2{
+    font-weight:normal;
+    font-size : 40px;
+    font-family:"Nanum Myeongjo";
+    color: #111;
+    margin-top:15px;
+    margin-bottom: 20px;
+}
+
+.swiper-wrapper .swiper-slide .inner .con p{
+    font-weight:normal;
+    font-size : 15px;
+    font-family:"Nanum Myeongjo";
+    color: #111;
+    margin-top:15px;
+    margin-bottom: 10px;
+}
+
+
+/* 가운데 스와이퍼 활성화 active */
+.wrap .swiper-wrapper .swiper-slide-active .inner {
+    opacity:1;
+    box-shadow: 0px 0px 50px rgba(255,255,255,0.8);
+}
+
+/* 가상요소로 같은 크기의 패널 제작 */
+.wrap .swiper-wrapper .swiper-slide .inner::before,
+.wrap .swiper-wrapper .swiper-slide .inner::after {
+    content :"";
+    /* 블록화해 넓이, 높이값 적용 */
+    display:block;
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+    background:#fff;
+}
+
+/* 애니메이션 적용 */
+@keyframes ani {
+    0% {
+        opacity :0;
+        transform:scale(1);
+    }
+
+    1% {
+        opacity:0.5;
+    }
+
+    100% {
+        opacity :0;
+        transform:scale(1.4);
+    }
+}
+
+/* 0.3 인터벌 간격으로 후광 효과 나타남 */
+.wrap .swiper-wrapper .swiper-slide-active .inner ::before{
+    animation ani 1s ease 1;
+}
+.wrap .swiper-wrapper .swiper-slide-active .inner ::after{
+    animation ani 1s ease 0.3s1;
+}
+
+.wrap .swiper-wrapper .swiper-slide-prev .inner,
+.wrap .swiper-wrapper .swiper-slide-next .inner{
+    opacity:0.7;
+}
+
+/* 스와이퍼 버튼 아래 위치 */
+.wrap .swiper-button-prev {
+    left:auto;
+    right:100px;
+    top:auto;
+    bottom:50px;
+    filter: grayscale(100%) brightness(3);
+    transform:scale(0.5);
+}
+
+.wrap .swiper-button-next {
+    left:auto;
+    right:60px;
+    top:auto;
+    bottom:50px;
+    filter: grayscale(100%) brightness(3);
+    transform:scale(0.5);
+}
+
+.wrap .swiper-pagination-fraction {
+    bottom :auto;
+    top: 50px;
+    left:auto;
+    right:50px;
+    width:auto;
+    font-size:20px;
+    font-family:"Nanum Myeongjo";
+    letter-spacing:1px;
+    color:#eee;
+}
+
+/* 현재 페이지에 강조기능 ? */
+.wrap .swiper-pagination-fraction span:nth-of-type(1){
+    font-size:34;
+    color:#fff;
+}
